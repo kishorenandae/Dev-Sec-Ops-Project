@@ -14,7 +14,7 @@
 - Clone your application's code repository onto the EC2 instance:
     
     ```bash
-    git clone https://github.com/N4si/DevSecOps-Project.git
+    git clone https://github.com/kishorenandae/Dev-Sec-Ops-Project.git
     ```
     
 
@@ -181,7 +181,7 @@ pipeline {
         }
         stage('Checkout from Git') {
             steps {
-                git branch: 'main', url: 'https://github.com/N4si/DevSecOps-Project.git'
+                git branch: 'main', url: 'https://github.com/kishorenandae/Dev-Sec-Ops-Project.git'
             }
         }
         stage("Sonarqube Analysis") {
@@ -271,7 +271,7 @@ pipeline{
         }
         stage('Checkout from Git'){
             steps{
-                git branch: 'main', url: 'https://github.com/N4si/DevSecOps-Project.git'
+                git branch: 'main', url: 'https://github.com/kishorenandae/Dev-Sec-Ops-Project.git'
             }
         }
         stage("Sonarqube Analysis "){
@@ -318,12 +318,12 @@ pipeline{
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image nasi101/netflix:latest > trivyimage.txt" 
+                sh "trivy image kishoreedigi/netflix:latest > trivyimage.txt" 
             }
         }
         stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name netflix -p 8081:80 nasi101/netflix:latest'
+                sh 'docker run -d --name netflix -p 8081:80 kishoreedigi/netflix:latest'
             }
         }
     }
